@@ -17,6 +17,12 @@
 ;; Set font
 (set-frame-font "Go Mono for Powerline-12" nil t)
 
+;; Set theme
+(use-package apropospriate-theme
+  :ensure t
+  :config 
+  (load-theme 'apropospriate-dark t))
+
 ;; Change backup location
 (setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
 
@@ -84,7 +90,7 @@ There are two things you can do about this warning:
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("~/repos/orgfiles/todo.org"))
  '(package-selected-packages
-   '(slime csv-mode evil vterm counsel magit xah-fly-keys use-package)))
+   '(apropospriate-theme slime csv-mode evil vterm counsel magit xah-fly-keys use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
