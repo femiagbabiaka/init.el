@@ -5,6 +5,33 @@
 ;;                                                                     ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; whoami
+(setq user-full-name "Femi Agbabiaka"
+      user-mail-address "femi@femiagbabiaka.xyz")
+
+;; Remove default GUI
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+;; Set font
+(set-frame-font "Go Mono for Powerline-12" nil t)
+
+;; Change backup location
+(setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+
+;; Update file backup settings
+(setq delete-old-versions -1)
+(setq version-control t)
+(setq vc-make-backup-files t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;                  ;;
+;;   package list   ;;
+;;                  ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
 ;; MELPA
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -35,17 +62,6 @@ There are two things you can do about this warning:
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
-;; Remove default GUI
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;                  ;;
-;;   package list   ;;
-;;                  ;;
-;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package evil
   :config
   (evil-mode 1))
@@ -54,12 +70,21 @@ There are two things you can do about this warning:
 
 (use-package vterm)
 
+(use-package csv-mode)
+
+(use-package slime
+  :config
+  (slime-setup '(slime-fancy slime-quicklisp slime-asdf))
+  (setq inferior-lisp-program "/usr/bin/sbcl"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(evil vterm counsel magit xah-fly-keys use-package)))
+ '(org-agenda-files '("~/repos/orgfiles/todo.org"))
+ '(package-selected-packages
+   '(slime csv-mode evil vterm counsel magit xah-fly-keys use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
