@@ -9,29 +9,6 @@
 (setq user-full-name "Femi Agbabiaka"
       user-mail-address "femi@femiagbabiaka.xyz")
 
-;; Remove default GUI
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
-(tool-bar-mode -1)
-
-;; Set font
-(set-frame-font "Go Mono for Powerline-12" nil t)
-
-;; Set theme
-(use-package apropospriate-theme
-  :ensure t
-  :config 
-  (load-theme 'apropospriate-dark t))
-
-;; Change backup location
-(setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
-
-;; Update file backup settings
-(setq delete-old-versions -1)
-(setq version-control t)
-(setq vc-make-backup-files t)
-
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;                  ;;
 ;;   package list   ;;
@@ -67,6 +44,30 @@ There are two things you can do about this warning:
 ;; config use-package
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
+
+;; Remove default GUI
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+;; Set font
+(set-frame-font "Go Mono for Powerline-12" nil t)
+
+;; Set theme
+(use-package apropospriate-theme
+  :ensure t
+  :config 
+  (load-theme 'apropospriate-dark t))
+
+;; Change backup location
+(setq backup-directory-alist '(("." . "~/.config/emacs/backups")))
+
+;; Update file backup settings
+(setq delete-old-versions -1)
+(setq version-control t)
+(setq vc-make-backup-files t)
+
+
 
 (use-package evil
   :config
